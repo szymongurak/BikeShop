@@ -1,0 +1,8 @@
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_MVC\bin\Debug\netcoreapp2.1\BikeShop_DAL.deps.json
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_MVC\bin\Debug\netcoreapp2.1\BikeShop_DAL.dll
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_MVC\bin\Debug\netcoreapp2.1\BikeShop_DAL.pdb
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_DAL\obj\Debug\netcoreapp2.1\BikeShop_DAL.csproj.CoreCompileInputs.cache
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_DAL\obj\Debug\netcoreapp2.1\BikeShop_DAL.AssemblyInfoInputs.cache
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_DAL\obj\Debug\netcoreapp2.1\BikeShop_DAL.AssemblyInfo.cs
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_DAL\obj\Debug\netcoreapp2.1\BikeShop_DAL.dll
+C:\Users\Szymon\Desktop\PGS\BikeShop_dailyVersions\pgs-bikeshop-develop@7a2073e3967\BikeShop_MVC\BikeShop_DAL\obj\Debug\netcoreapp2.1\BikeShop_DAL.pdb

@@ -1,0 +1,63 @@
+﻿@model ProductListResponse
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_Layout";
+}
+@section styles{ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css" />
+}
+<div class="container-fluid product-page">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2">
+        <form asp-controller="Product" asp-action="Index" method="get">
+            <div class="search-input form-group">
+                <input type="text" class="form-control" name="searchedProduct" value="@Model.SearchedProduct" placeholder="Search">
+            </div>
+            <div class="slider-padding col-md-offset-1">
+                <span>Range of price: <span id="minPriceVal">@Model.CurrentSetMinPrice</span>- <span id="maxPriceVal">@Model.CurrentSetMaxPrice</span></span>
+                <input type="hidden" id="minPriceToSend" name="minPrice" value="@Model.CurrentSetMinPrice" />
+                <input type="hidden" id="maxPriceToSend" name="maxPrice" value="@Model.CurrentSetMaxPrice" />
+                <input id="rangeOfPrice" data-slider-id='ex1Slider' type="text" data-slider-min="@Model.MinPrice" data-slider-max="@Model.MaxPrice" data-slider-step="1" data-slider-value="[@Model.CurrentSetMinPrice,@Model.CurrentSetMaxPrice]" />
+            </div>
+            <div class="search-button-padding">
+                <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+        </form>
+        @Html.Partial("_CategoryPanel", Model.CategoryList)
+    </div>
+    <div class="col-sm-6">
+        <div class="name-category">
+            <h3>@Model.CategoryName</h3>
+            <hr>
+        </div>
+        <div class="table-content">
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.PagedResponse.ListOfItems)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Price &euro;</td>
+                            <td>
+                                <a asp-action="Details" asp-route-productId="@product.Id" class="btn btn-warning btn-sm">Show Details</a>
+                            </td>
+                        </tr>}
+                </tbody>
+            </table>
+        </div>
+        @await Component.InvokeAsync("Paging", new { url = Model.GetCurrentUrl(Url), pageSize = Model.PagedResponse.PageCount, currentPage = Model.PagedResponse.CurrentPage })
+    </div>
+</div>
+@section customScripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.min.js"></script>
+    <script src="~/js/sliderToSetPrice.js"></script>
+}
+

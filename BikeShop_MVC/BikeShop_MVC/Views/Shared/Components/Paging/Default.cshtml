@@ -1,0 +1,8 @@
+﻿@model PagingViewComponentResult
+
+<ul class="pagination">
+    @for (var p = 1; p <= Model.PageCount; p++)
+    {
+        <li class="@(p == Model.CurrentPage ? "active" : "")"><a href="@(Model.Url + (Model.Url.IndexOf("?") == -1 ? "?" : "") + "&pageNo=" + p)">@p</a></li>
+    }
+</ul>

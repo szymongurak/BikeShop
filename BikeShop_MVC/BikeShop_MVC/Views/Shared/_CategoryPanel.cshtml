@@ -1,0 +1,11 @@
+﻿@model List<CategoryViewModel>
+<ul class="nav nav-pills nav-stacked category-panel">
+    @foreach (var category in Model)
+    {
+        <li>
+            <a asp-action="Index"
+               asp-controller="Product"
+               asp-route-categoryId="@category.Id">@category.Name</a>
+        </li>
+    }
+</ul>   

@@ -1,0 +1,28 @@
+﻿#cart-container {
+    margin-top: 80px;
+}
+
+#cart-name {
+    font-weight: 900;
+    color: #c45e4c;
+}
+
+.quantityInput {
+    width: 50px;
+    display: none;
+}
+
+.edit-buttons-section {
+    display: inline-block;
+}
+
+.acceptButton {
+    display: none;
+}
+
+#summary-cost {
+    padding-top: 75px;
+    text-align: right;
+    font-weight: 900;
+    color: #c45e4c;
+}

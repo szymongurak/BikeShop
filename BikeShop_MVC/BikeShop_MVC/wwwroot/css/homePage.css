@@ -1,0 +1,67 @@
+﻿#banner-img{
+    padding-top: 50px;
+    filter: blur(2px);
+}
+
+#banner-text{
+    background-color: rgba(0,0,0, 0.3); 
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 90%;
+    padding: 30px;
+    text-align: center;
+}
+
+#banner-big-text{
+    font-size: 60px;
+}
+
+.banner-small-text{
+    padding: 50px;
+}
+
+#conatainers{
+    padding-top: 60px;
+}
+
+.container-body{
+    height: 250px;
+}
+
+.container-title {
+    font-weight: 900;
+    color: #c45e4c;
+    text-align: center;
+}
+
+.carousel-padding {
+    padding-top: 10px;
+}
+
+.product-img {
+    width: 200px;
+}
+
+.product-name {
+    font-weight: 900;
+}
+
+.product-price {
+    padding-top: 15px;
+}
+
+.product-button {
+    padding-top: 25px;
+}
+
+#second-container-title {
+    padding-top: 90px;
+}
+
+

@@ -1,0 +1,42 @@
+﻿.deatils-body{
+    margin-top: 100px;
+}
+
+.nameOfProduct {
+    padding-bottom: 10px;
+    font-weight: 900;
+    color: #545454;
+}
+
+.product_meta {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.price {
+    color: #c45e4c;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.input-quantity {
+    padding-top: 35px;
+}
+
+#selectedQuantity {
+    width: 120px;
+}
+
+#averageRatingSection {
+    padding-right: 20px;
+}
+
+#ratingInput {
+    padding-top: 10px;
+    display: none;
+}
+
+.rating {
+    font-size: 35px;
+    color: gold;
+}

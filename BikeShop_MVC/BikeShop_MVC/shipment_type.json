@@ -1,0 +1,17 @@
+{
+  "ShipmentMethod": [
+    {
+      "Name": "Standard DHL (Delivery 3-5 working days)",
+      "Price": "8"
+    },
+    {
+      "Name": "Express DHL (Delivery 2-3 working days)",
+      "Price": "12"
+    },
+    {
+      "Name": "Express UPS (Delivery 1 working day)",
+      "Price": "15"
+    }
+  ]
+}
+

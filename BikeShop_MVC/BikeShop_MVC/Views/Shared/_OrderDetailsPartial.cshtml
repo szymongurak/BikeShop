@@ -1,0 +1,44 @@
+﻿@model OrderDetailsResponse
+
+<link rel="stylesheet" href="~/css/orderDetails.css" />
+
+<h4 class="section-title">Order positions</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>TotalPrice</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var orderPosition in Model.ListOdOrderPositions)
+        {
+            <tr>
+                <td>@orderPosition.NameOfProduct</td>
+                <td>@orderPosition.Quantity</td>
+                <td>@orderPosition.Price &euro;</td>
+                <td>@orderPosition.TotalPrice &euro;</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row" id="user-data">
+    <div class="col-sm-6">
+        <h4 class="section-title">User data</h4>
+        <h5><strong>First name: </strong><span>@Model.UserData.FirstName</span></h5>
+        <h5><strong>Last name: </strong><span>@Model.UserData.LastName</span></h5>
+        <h5><strong>Email: </strong><span>@Model.UserData.Email</span></h5>
+        <h5><strong>Phone number: </strong><span>@Model.UserData.PhoneNumber</span></h5>
+        <h5><strong>Address: </strong><span>@Model.UserData.Address</span></h5>
+        <h5><strong>City: </strong><span>@Model.UserData.City</span></h5>
+        <h5><strong>Country: </strong><span>@Model.UserData.Country</span></h5>
+    </div>
+    <div class="col-sm-6">
+        <h4 class="section-title">Delivery data</h4>
+        <h5><strong>Shipment type: </strong><span>@Model.ShipmentData.TypeOfShipment</span></h5>
+        <h5><strong>Shipment price: </strong><span>@Model.ShipmentData.CostOfShipment &euro;</span></h5>
+    </div>
+</div>
+

@@ -1,0 +1,53 @@
+﻿@model DetailsResponse
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "_Layout";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/details.css" />
+}
+<div class="deatils-body">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4">
+        <img class="img-responsive" src="~/images/@Model.ProductDetails.Picture">
+    </div>
+    <div class="col-sm-3">
+        <h3 class="nameOfProduct">@Model.ProductDetails.Name</h3>
+        <div class="product_meta">
+            <strong>Manufacturer: </strong><span>@Model.ProductDetails.Manufacturer</span>
+        </div>
+        <div class="product_meta">
+            <strong>Available quantity: </strong><span id="availableQuantity">@Model.ProductDetails.Quantity</span>
+        </div>
+        <div class="product_meta">
+            <strong>Description: </strong><span>@Model.ProductDetails.Description</span>
+        </div>
+        <div class="product_meta">
+            <strong>Price: </strong><span class="price">@Model.ProductDetails.Price &euro;</span>
+        </div>
+        <div class="product_meta">
+            <strong id="averageRatingSection">Average rating: <span id="averageRating">@(Model.RatingsQuantity == 0 ? 0 : Model.AverageOfRatings)</span></strong>
+            <strong>Ratings quantity: <span id="ratingsQuantity">@Model.RatingsQuantity</span></strong>
+        </div>
+        <div class="product_meta" id="ratingInput" data-user-is-authenticated="@(User.Identity.IsAuthenticated)">
+            <strong>Your rating:</strong>
+            <div class="rating" data-product-id="@Model.ProductDetails.Id" data-rate-value=@Model.UserRatingValue></div>
+        </div>
+        <form method="get">
+            <div class="form-group input-quantity">
+                <label for="quantityInput">Selected quantity</label>
+                <input type="text" class="form-control" id="selectedQuantity" name="selectedQuantity" value="1">
+            </div>
+            <input type="hidden" name="productId" id="productId" value="@Model.ProductDetails.Id" />
+        </form>
+        <button id="btnToAdd" class="btn btn-danger" disabled=@(User.Identity.IsAuthenticated ? false : true)>Add to cart <span class="glyphicon glyphicon-shopping-cart"></span></button>
+        <p hidden=@(User.Identity.IsAuthenticated ? true : false)>If you want to buy this item, you should <a href="/Identity/Account/Login">Login</a></p>
+    </div>
+</div>
+@section customScripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/js/addProductToCart.js"></script>
+    <script src="~/js/rater.js"></script>
+    <script src="~/js/rating.js"></script>
+}

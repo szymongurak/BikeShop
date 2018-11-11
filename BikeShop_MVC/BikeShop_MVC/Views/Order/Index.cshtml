@@ -1,0 +1,110 @@
+﻿@model OrderResponse
+@{
+    ViewData["Title"] = "BikeShop Order";
+    Layout = "_Layout";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/order.css" />
+}
+
+<div class="container-fluid" id="order-container">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        @if (TempData["erorMessage"] != null)
+        {
+            <div class="alert alert-warning alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                @TempData["erorMessage"]
+            </div>
+        }
+        <h2 class="title" id="order-positions-title">Summary of order</h2>
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>Product name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>TotalPrice</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderPosition in Model.ListOdOrderPositions)
+                {
+                    <tr>
+                        <td>@orderPosition.NameOfProduct</td>
+                        <td>@orderPosition.Quantity</td>
+                        <td>@orderPosition.Price</td>
+                        <td>@orderPosition.TotalPrice</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h4 class="right" id="summary-cost"><strong>Summary cost: </strong><span id="summaryCost"><input type="hidden" id="summaryCostValue" value="@Model.SummaryCost" />@Model.SummaryCost</span> &euro;</h4>
+        <div id="user-data-title">
+            <h2 class="title">User information </h2>
+            <h6 class="title">(necessary to finalize the order)</h6>
+        </div>
+        <form method="post" asp-controller="Order" asp-action="FinalizeOrder">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.FirstName"></label>
+                <input asp-for="@Model.UserData.FirstName" class="form-control" />
+                <span asp-validation-for="@Model.UserData.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.LastName"></label>
+                <input asp-for="@Model.UserData.LastName" class="form-control" />
+                <span asp-validation-for="@Model.UserData.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.Email"></label>
+                <input asp-for="@Model.UserData.Email" class="form-control" />
+                <span asp-validation-for="@Model.UserData.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.PhoneNumber"></label>
+                <input asp-for="@Model.UserData.PhoneNumber" class="form-control" />
+                <span asp-validation-for="@Model.UserData.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.Address"></label>
+                <input asp-for="@Model.UserData.Address" class="form-control" />
+                <span asp-validation-for="@Model.UserData.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.City"></label>
+                <input asp-for="@Model.UserData.City" class="form-control" />
+                <span asp-validation-for="@Model.UserData.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserData.Country"></label>
+                <input asp-for="@Model.UserData.Country" class="form-control" />
+                <span asp-validation-for="@Model.UserData.Country" class="text-danger"></span>
+            </div>
+            <h2 class="title" id="delivery-options-title">Delivery options</h2>
+            @{Boolean firstShipment = true; }
+            @foreach (var shipment in Model.ListOfShipmentTypes)
+            {
+                <div class="radio">
+                    <label class="radio-label"><input @(firstShipment ? "checked" : "") class="radioInput" data-typeOfShipment="@shipment.TypeOfShipment" type="radio" name="costOfShipment" value="@shipment.CostOfShipment"><strong class="delivery-option-value">@shipment.CostOfShipment &euro;</strong> @shipment.TypeOfShipment</label>
+                </div>
+                firstShipment = false;
+            }
+            <h3><strong>Total cost: </strong><span id="totalCost">@Model.TotalCost</span> &euro;</h3>
+            <div id="buttons-section">
+                <input type="hidden" id="typeOfShipment" value="Standard DHL" name="typeOfShipment" />
+                <input type="hidden" value="@Model.OrderId" name="orderId" />
+                <input type="hidden" id="summaryCostInput" value="@Model.SummaryCost" name="summaryCost" />
+                <a asp-controller="Order" asp-action="ReturnToCart" asp-route-orderId="@Model.OrderId" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-arrow-left"></span> Return to cart</a>
+                <button class="btn btn-success pull-right" type="submit"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+@section customScripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Identity/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/order.js"></script>
+}

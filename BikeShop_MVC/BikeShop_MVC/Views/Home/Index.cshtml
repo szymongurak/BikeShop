@@ -1,0 +1,99 @@
+﻿@model HomePageResponse
+@{
+    ViewData["Title"] = "BikeShop HomePage";
+    Layout = "_Layout";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/homePage.css" />
+}
+
+<div>
+    <div>
+        <div id="banner-img")>
+            <img class="img-responsive" src="~/images/banner.jpg">
+        </div>
+        <div id="banner-text">
+            <h1 id="banner-big-text">Bike Shop</h1>
+            <span class="banner-small-text">Bikes</span><span class="banner-small-text">Parts</span>
+            <span class="banner-small-text">Accessories</span><span class="banner-small-text">Clothing</span>
+        </div>
+    </div>
+
+    <div id="conatainers">
+        <div class="container container-body">
+            <h1 class="container-title">Last added products</h1>
+            <div class="carousel-padding">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @{Boolean firstLastAddedProduct = true;}
+                        @foreach (var product in Model.LastAddedProducts)
+                        {
+                            <div class="item @(firstLastAddedProduct ? "active" : "")">
+                                <div class="col-sm-3 col-sm-offset-3">
+                                    <img class="img-responsive product-img" src="~/images/@product.Picture" alt="New york">
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4 class="product-name">@product.Name</h4>
+                                    <div class="product-price">
+                                        <strong>Price: </strong><span>@product.Price &euro;</span>
+                                    </div>
+                                    <div class="product-button">
+                                        <a asp-action="Details" asp-controller="Product" asp-route-productId="@product.Id" class="btn bg-primary">Show more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            firstLastAddedProduct = false;
+                        }
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background:white !important">
+                        <span class="glyphicon glyphicon-chevron-left" style="color:gray"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background:white !important">
+                        <span class="glyphicon glyphicon-chevron-right" style="color:gray"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container-body">
+            <div id="second-container-title">
+                <h1 class="container-title">Recommended products</h1>
+            </div>
+            <div class="carousel-padding">
+                <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @{Boolean firstRecommendedProduct = true;}
+                        @foreach (var product in Model.RecommendedProducts)
+                        {
+                            <div class="item @(firstRecommendedProduct ? "active" : "")">
+                                <div class="col-sm-3 col-sm-offset-3">
+                                    <img class="img-responsive product-img" src="~/images/@product.Picture" alt="New york">
+                                </div>
+                                <div class="col-sm-4">
+                                    <h4 class="product-name">@product.Name</h4>
+                                    <div class="product-price">
+                                        <strong>Price: </strong><span>@product.Price &euro;</span>
+                                    </div>
+                                    <div class="product-button">
+                                        <a asp-action="Details" asp-controller="Product" asp-route-productId="@product.Id" class="btn bg-primary">Show more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            firstRecommendedProduct = false;
+                        }
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel2" data-slide="prev" style="background:white !important">
+                        <span class="glyphicon glyphicon-chevron-left" style="color:gray"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel2" data-slide="next" style="background:white !important">
+                        <span class="glyphicon glyphicon-chevron-right" style="color:gray"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

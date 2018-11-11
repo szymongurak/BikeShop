@@ -1,0 +1,61 @@
+﻿@model OperationResult<CartResponse>
+@{
+    ViewData["Title"] = "BikeShop Cart";
+    Layout = "_Layout";
+}
+@section styles{
+    <link rel="stylesheet" href="~/css/cart.css" />
+}
+
+<div class="container-fluid cart-page" id="cart-container">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        <h1 id="cart-name">Cart state</h1>
+        <div class="table-content">
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>TotalPrice</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var orderPosition in Model.Result.ListOfProductsInCart)
+                    {
+                        <tr class="rowWithOrder">
+                            <td>@orderPosition.NameOfProduct</td>
+                            <td>
+                                <p class="quantityValue" data-order-position-id="@orderPosition.OrderPositionId">@orderPosition.Quantity</p>
+                                <input type="text" class="quantityInput" data-order-position-id="@orderPosition.OrderPositionId" value="@orderPosition.Quantity" />
+                            </td>
+                            <td>@orderPosition.Price &euro;</td>
+                            <td>
+                                <p><span class="totalPriceValue" data-order-position-id="@orderPosition.OrderPositionId">@orderPosition.TotalPrice</span> &euro;</p>
+                            </td>
+                            <td>
+                                <div class="edit-buttons-section">
+                                    <a class="btn btn-success btn-sm acceptButton" data-order-position-id="@orderPosition.OrderPositionId"><span class="glyphicon glyphicon-ok"></span></a>
+                                    <a class="btn btn-warning btn-sm editButton" data-order-position-id="@orderPosition.OrderPositionId"><span class="glyphicon glyphicon-edit editIcon"></span></a>
+                                </div>
+                            </td>
+                            <td class="removeId">
+                                <a class="btn btn-danger btn-sm removeButton" asp-action="RemoveProductFromCart" asp-controller="Cart" asp-route-orderPositionId="@orderPosition.OrderPositionId"><span class="glyphicon glyphicon-remove"></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <h3 class="right" id="summary-cost">Summary cost: <span id="summaryCost">@Model.Result.SummaryCost</span> &euro;</h3>
+            <a asp-controller="Order" asp-action="Index" class="btn btn-success pull-right">Checkout <span class="glyphicon glyphicon-arrow-right"></span></a>
+        </div>
+    </div>
+</div>
+@section customScripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/js/editQuantity.js"></script>
+}

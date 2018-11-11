@@ -1,0 +1,10 @@
+﻿@model CategoryListResponse
+
+@foreach (var category in Model.CategoryList)
+{
+    <li>
+        <a asp-action="Index"
+           asp-controller="Product"
+           asp-route-categoryId="@category.Id">@category.Name</a>
+    </li>
+}
