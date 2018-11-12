@@ -155,7 +155,55 @@ namespace BikeShop_DAL.Migrations
                         new { Id = 17, CategoryId = 1, Description = "The reliable choice, Shimano's 105 brake caliper is compact and lightweight, offering high performance at a reasonable price.", Manufacturer = "Shimano", Name = "Shimano 105 5800 Road Brake Caliper", Picture = "product_17.jpg", Price = 27.99m, Quantity = 290, Recommended = true },
                         new { Id = 18, CategoryId = 1, Description = "Shimano XT 10-speed chain works smoothly with their new Dyna-Sys 10-speed drivetrain. ", Manufacturer = "Shimano", Name = "XT HG95 SIL-TEC 10 Speed Chain", Picture = "product_18.jpg", Price = 19.89m, Quantity = 35, Recommended = false },
                         new { Id = 19, CategoryId = 1, Description = "This Shimano XT M8000 11-Speed 11-42t Cassette is tuned to maintain your rhythm with a consistent cadence. Shave bike weight off without sacrificing durability or reliability.", Manufacturer = "Shimano", Name = "XT M8000 11 Speed 11-42t Cassette", Picture = "product_19.jpg", Price = 72.89m, Quantity = 55, Recommended = false },
-                        new { Id = 20, CategoryId = 1, Description = "Choose the chainring you need and tailor your crankset to ride anywhere with this Shimano XT M8000 Single 11-Speed Crankset.", Manufacturer = "Shimano", Name = "XT M8000 Single 11 Speed Crankset", Picture = "product_20.jpg", Price = 111.49m, Quantity = 80, Recommended = false }
+                        new { Id = 20, CategoryId = 1, Description = "Choose the chainring you need and tailor your crankset to ride anywhere with this Shimano XT M8000 Single 11-Speed Crankset.", Manufacturer = "Shimano", Name = "XT M8000 Single 11 Speed Crankset", Picture = "product_20.jpg", Price = 111.49m, Quantity = 80, Recommended = false },
+                        new { Id = 21, CategoryId = 1, Description = "The chassis and internals have been specifically engineered for 100 millimeters of travel. No compromises.", Manufacturer = "RockShox", Name = "SID World Cup Solo Air Forks-Boost 2017", Picture = "product_21.jpg", Price = 374.99m, Quantity = 150, Recommended = false },
+                        new { Id = 22, CategoryId = 1, Description = "The RockShox Revelation has evolved to tackle the most challenging trail and enduro rides.", Manufacturer = "RockShox", Name = "Revelation RC DebonAir Forks - Boost 2018", Picture = "product_22.jpg", Price = 449.99m, Quantity = 150, Recommended = false },
+                        new { Id = 23, CategoryId = 1, Description = "The RockShox Sektor is a perfect example of trickle down technology. Take the great performance and the chassis of the Revelation and tag it with a price you won't believe.", Manufacturer = "RockShox", Name = "Sektor Gold RL Dual Position Coil Forks 2018", Picture = "product_23.jpg", Price = 404.99m, Quantity = 150, Recommended = false },
+                        new { Id = 24, CategoryId = 1, Description = "Fox Suspension’s 32 Float Performance Forks are designed to give the most aggressive cross-country racers the smooth performance, low weight and range of adjustments they need to dominate on the most challenging trails.", Manufacturer = "Fox", Name = "Fox Suspension 32 Float Performance Forks - QR15 2016", Picture = "product_24.jpg", Price = 312.99m, Quantity = 200, Recommended = false },
+                        new { Id = 25, CategoryId = 1, Description = "Fox Suspension’s 32 Float Performance Forks are designed to give the most aggressive cross-country racers the smooth performance, low weight and range of adjustments they need to dominate on the most challenging trails.", Manufacturer = "Fox", Name = "Fox Suspension 32 Float Performance Forks - Boost 2017", Picture = "product_25.jpg", Price = 374.99m, Quantity = 200, Recommended = false },
+                        new { Id = 26, CategoryId = 1, Description = "The Schwalbe Magic Mary Addix MTB Tyre is the perfect choice for any Track or Trail situation.", Manufacturer = "Schwalbe", Name = "Magic Mary Addix MTB Tyre - SnakeSkin", Picture = "product_26.jpg", Price = 56.49m, Quantity = 200, Recommended = false },
+                        new { Id = 27, CategoryId = 1, Description = "The Schwalbe Nobby Nic Addix MTB Tyre is a true all rounder that performs brilliantly with any terrain, whatever the weather. Suited perfectly to All-Mountain, Touring, challenging Cross-Country and technical Enduro Trails.", Manufacturer = "Schwalbe", Name = "Nobby Nic Addix MTB Tyre - Snakeskin", Picture = "product_27.jpg", Price = 53.49m, Quantity = 200, Recommended = false },
+                        new { Id = 28, CategoryId = 1, Description = "Lighter, grippier, faster. The turbo of spike tyres, with 361 spikes it bites firmly into icy roads, the tungsten carbide core of each spike is clad in weight-saving aluminium.", Manufacturer = "Schwalbe", Name = "Ice Spiker Pro Winter Tyre - RaceGuard", Picture = "product_28.jpg", Price = 49.49m, Quantity = 200, Recommended = false },
+                        new { Id = 29, CategoryId = 1, Description = "The Schwalbe Racing Ralph Addix MTB Tyre is the perfect balance of speed and grip. ", Manufacturer = "Schwalbe", Name = "Racing Ralph Addix MTB Tyre - SnakeSkin", Picture = "product_29.jpg", Price = 53.49m, Quantity = 200, Recommended = false },
+                        new { Id = 30, CategoryId = 1, Description = "The Schwalbe Black Jack MTB Tyre has a versatile profile with good grip and easy rolling characteristics.", Manufacturer = "Schwalbe", Name = "Black Jack MTB Tyre", Picture = "product_30.jpg", Price = 17.49m, Quantity = 200, Recommended = false },
+                        new { Id = 31, CategoryId = 1, Description = "The Antares R1 is ideal for cyclists with medium spine flexibility. ", Manufacturer = "Fizik", Name = "Antares R1 Carbon Saddle", Picture = "product_31.jpg", Price = 84.49m, Quantity = 200, Recommended = false },
+                        new { Id = 32, CategoryId = 1, Description = "Totally new from Fizik. The same great Aliante saddle now with a relief area for better blood flow. ", Manufacturer = "Fizik", Name = "Aliante Vs K:IUM Saddle", Picture = "product_32.jpg", Price = 79.49m, Quantity = 200, Recommended = false },
+                        new { Id = 33, CategoryId = 1, Description = "With its waved profile that helps you to maintain position when you're pedalling hard and a central cut-out to remove pressure from your sensitive areas.", Manufacturer = "Fizik", Name = "Aliante R3 Open Saddle 2018", Picture = "product_33.jpg", Price = 77.49m, Quantity = 200, Recommended = false },
+                        new { Id = 34, CategoryId = 1, Description = "Shimano's Saint M820 Disc Brake embraces their Ice Technology, which works to reduce heat and improve braking performance.", Manufacturer = "Shimano", Name = "Saint M820 Disc Brake", Picture = "product_34.jpg", Price = 177.49m, Quantity = 200, Recommended = false },
+                        new { Id = 35, CategoryId = 1, Description = "The Deore M6000 Disc Brake offers great value for money and gives you plenty of power and control at your fingertips. ", Manufacturer = "Shimano", Name = "Deore M6000 Disc Brake", Picture = "product_35.jpg", Price = 69.49m, Quantity = 200, Recommended = false },
+                        new { Id = 36, CategoryId = 1, Description = "105 R7020 Hydraulic Disc Brake.", Manufacturer = "Shimano", Name = "105 R7020 Hydraulic Disc Brake", Picture = "product_36.jpg", Price = 179.49m, Quantity = 200, Recommended = false },
+                        new { Id = 37, CategoryId = 1, Description = "The Shimano XTR M9000 Race Disc Brake is a powerful hydraulic disc brake. ", Manufacturer = "Shimano", Name = "XTR M9000 Race Disc Brake", Picture = "product_37.jpg", Price = 168.49m, Quantity = 200, Recommended = false },
+                        new { Id = 38, CategoryId = 1, Description = "Shimano HG800 11-Speed Cassette features high end sprockets that provide superior shifting and exceptional drivetrain performance.", Manufacturer = "Shimano", Name = "Ultegra HG800 11 Speed Cassette 11-34", Picture = "product_38.jpg", Price = 66.49m, Quantity = 200, Recommended = false },
+                        new { Id = 39, CategoryId = 1, Description = "Shimano's SLX M7000 11 Speed 11-42T Cassette utilises their Hyperglide technology alongside a lightweight aluminium spider construction.", Manufacturer = "Shimano", Name = "SLX M7000 11 Speed 11-42t Cassette", Picture = "product_39.jpg", Price = 62.49m, Quantity = 200, Recommended = false },
+                        new { Id = 40, CategoryId = 1, Description = "This Shimano XT M770 9-Speed MTB Cassette is manufactured to a high-quality and comes with guaranteed durability through the chrome-plated finish, which is resistant to corrosion", Manufacturer = "Shimano", Name = "XT M770 9 Speed MTB Cassette", Picture = "product_40.jpg", Price = 61.99m, Quantity = 200, Recommended = false },
+                        new { Id = 41, CategoryId = 2, Description = "NS Bikes' Zircus Dirt Jump Bike optimises the same lightweight and strong aluminium frameset.", Manufacturer = "NS Bikes", Name = "NS Bikes Zircus Dirt Jump Bike 2018", Picture = "product_41.jpg", Price = 609.99m, Quantity = 200, Recommended = false },
+                        new { Id = 42, CategoryId = 2, Description = "The NS Bikes Eccentric Lite 1 features a lightweight but very tough alloy frame. ", Manufacturer = "NS Bikes", Name = "NS Bikes Eccentric Lite 1 Hardtail Bike 2018", Picture = "product_42.jpg", Price = 809.99m, Quantity = 200, Recommended = false },
+                        new { Id = 43, CategoryId = 2, Description = "The NS Bikes Snabb 130 Plus 2 Suspension Bike is a great all-round use  trail bike. ", Manufacturer = "NS Bikes", Name = "NS Bikes Snabb 130 Plus 2 Suspension Bike 2018", Picture = "product_43.jpg", Price = 2229.99m, Quantity = 80, Recommended = false },
+                        new { Id = 44, CategoryId = 2, Description = "A long-running model from hardtail specialists GT, the Avalanche is still a much sought-after mountain bike. ", Manufacturer = "GT", Name = "Avalanche Sport 29 Hardtail MTB 2018", Picture = "product_44.jpg", Price = 499.99m, Quantity = 80, Recommended = false },
+                        new { Id = 45, CategoryId = 2, Description = "One of GT's most long-serving models for a myriad of reasons, the Avalanche range goes from strength to strength with the upgrades and high-tech build of the Avalanche Comp 29 Hardtail Mountain Bike", Manufacturer = "GT", Name = "Avalanche Comp 29 Hardtail Mountain Bike 2018", Picture = "product_45.jpg", Price = 539.99m, Quantity = 80, Recommended = false },
+                        new { Id = 46, CategoryId = 2, Description = "Whether going after rail trails, bike paths, suburban streets or light trail rides, the Aggressor Expert will handle any type of ride you throw at it.", Manufacturer = "GT", Name = "Aggressor Expert Bike 2019", Picture = "product_46.jpg", Price = 499.99m, Quantity = 80, Recommended = false },
+                        new { Id = 47, CategoryId = 2, Description = "Whether going after rail trails, bike paths, suburban streets or light trail rides, the Aggressor Expert will handle any type of ride you throw at it.", Manufacturer = "GT", Name = "Aggressor Expert Bike 2019", Picture = "product_47.jpg", Price = 499.99m, Quantity = 80, Recommended = false },
+                        new { Id = 48, CategoryId = 2, Description = "Designed with control and balance in mind, your first ride definitely won't be your last.", Manufacturer = "GT", Name = "Palomar Al 27.5 Hardtail Mountain Bike 2018", Picture = "product_48.jpg", Price = 489.99m, Quantity = 90, Recommended = false },
+                        new { Id = 49, CategoryId = 2, Description = "Building confidence and control as you make your first foray in to off road riding, the Aggressor Sport will see you right, whether you go softly-softly or all guns blazing. ", Manufacturer = "GT", Name = "Aggressor Sport Bike 2019", Picture = "product_49.jpg", Price = 501.99m, Quantity = 90, Recommended = false },
+                        new { Id = 50, CategoryId = 2, Description = "Referred to as the 'little brother' of the Zaskar by many GT aficionados, the Avalanche Elite 29 Hardtail Mountain Bike gives top-notch performance on every ride", Manufacturer = "GT", Name = "Avalanche Elite 29 Hardtail MTB 2018", Picture = "product_50.jpg", Price = 529.99m, Quantity = 90, Recommended = false },
+                        new { Id = 51, CategoryId = 4, Description = "Wick sweat fast and carry the comfort of your favourite t-shirt thanks to the Indicator LS Mash Camo Jersey from Fox Racing.", Manufacturer = "Fox", Name = "Indicator LS Mash Camo Jersey AW18", Picture = "product_51.jpg", Price = 44.99m, Quantity = 150, Recommended = false },
+                        new { Id = 52, CategoryId = 4, Description = "Lightweight and breathable, the Fox Demo LS Camo Burn Jersey is ideal for mountain biking when the weather is warm.", Manufacturer = "Fox", Name = "Demo LS Camo Burn Jersey AW18", Picture = "product_52.jpg", Price = 45.99m, Quantity = 150, Recommended = false },
+                        new { Id = 53, CategoryId = 4, Description = "The Fox Racing Attack Pro Jersey raises the game when it comes to keeping you cool in hot weather.", Manufacturer = "Fox", Name = "Attack Pro Jersey AW18", Picture = "product_53.jpg", Price = 46.99m, Quantity = 150, Recommended = false },
+                        new { Id = 54, CategoryId = 4, Description = "A premium-quality MTB jersey without the premium-quality price tag, the Ranger SS Bars Jersey from Fox Racing is here to keep you cool when your ride heats up.", Manufacturer = "Fox", Name = "Ranger SS Bars Jersey AW18", Picture = "product_54.jpg", Price = 42.99m, Quantity = 150, Recommended = false },
+                        new { Id = 55, CategoryId = 4, Description = "Fox Racing's Demo Long Sleeve MTB Jersey has been raced to success at many World Cup events and offers you lightweight and breathable performance.", Manufacturer = "Fox", Name = "Demo Long Sleeve MTB Jersey SS17", Picture = "product_55.jpg", Price = 47.99m, Quantity = 150, Recommended = false },
+                        new { Id = 56, CategoryId = 4, Description = "Fox Racing's Indicator MTB Jersey is made of TruDri polyester knit fabric to keep you dry and comfortable.", Manufacturer = "Fox", Name = "Indicator Long Sleeve MTB Jersey", Picture = "product_56.jpg", Price = 45.99m, Quantity = 150, Recommended = false },
+                        new { Id = 57, CategoryId = 4, Description = "For downhill riders who love the feel of riding and racing in shorts the Fox Racing Demo Shorts are fantastically durable.", Manufacturer = "Fox", Name = "Demo Shorts AW18", Picture = "product_57.jpg", Price = 59.99m, Quantity = 150, Recommended = false },
+                        new { Id = 58, CategoryId = 4, Description = "That same great Fox Racing feel, now with added protection from the elements—the perfect choice for unpredictable summer or spring shreds. ", Manufacturer = "Fox", Name = "Ranger WR Shorts AW18", Picture = "product_58.jpg", Price = 57.99m, Quantity = 150, Recommended = false },
+                        new { Id = 59, CategoryId = 4, Description = "The Downpour Shorts are built using the same durable 3 layer Trumotion 4-way stretch fabric as the Downpour Jacket.", Manufacturer = "Fox", Name = "Downpour Shorts SS17", Picture = "product_59.jpg", Price = 60.99m, Quantity = 150, Recommended = false },
+                        new { Id = 60, CategoryId = 4, Description = "Made for when the heavens REALLY open, the Downpour Shorts feature Fox Racing’s premier TRUSEAL waterproof membrane within its fabric.", Manufacturer = "Fox", Name = "Downpour Shorts 2016", Picture = "product_60.jpg", Price = 59.99m, Quantity = 150, Recommended = false },
+                        new { Id = 61, CategoryId = 4, Description = "Despite their camo design, the Fox Racing Ranger Camo Cargo Shorts aren’t hiding their practical and performance advantages in any way.", Manufacturer = "Fox", Name = "Ranger Camo Cargo Shorts AW18", Picture = "product_61.jpg", Price = 61.99m, Quantity = 150, Recommended = false },
+                        new { Id = 62, CategoryId = 4, Description = "Deeper coverage for those afternoons spent shredding the trail.", Manufacturer = "Fox", Name = "Metah Thresh Helmet", Picture = "product_62.jpg", Price = 95.99m, Quantity = 150, Recommended = false },
+                        new { Id = 63, CategoryId = 4, Description = "Breathing new life into what is widely recognised as one of Fox Racing’s greatest ever lids, the Flux Helmet is ready and waiting to modernise offroad protection to inspire confidence on the trail.", Manufacturer = "Fox", Name = "Flux Helmet AW18", Picture = "product_63.jpg", Price = 99.99m, Quantity = 150, Recommended = false },
+                        new { Id = 64, CategoryId = 4, Description = "The Women's Flux Helmet is one of Fox Racing's best-selling AM helmets and provides you with excellent protection thanks to its deep EPS profile.", Manufacturer = "Fox", Name = "Womens Flux Helmet", Picture = "product_64.jpg", Price = 97.99m, Quantity = 150, Recommended = false },
+                        new { Id = 65, CategoryId = 4, Description = "It’s time to stand up and take notice, cycling’s messiah has been born!", Manufacturer = "Fox", Name = "Metah Flow Helmet AW18", Picture = "product_65.jpg", Price = 98.99m, Quantity = 150, Recommended = false },
+                        new { Id = 66, CategoryId = 4, Description = "One of Fox Racing’s most popular lids, the Flux Creo Helmet partners you with a real off-road warrior to infuse your ride with high-end coverage and protection.", Manufacturer = "Fox", Name = "Flux Creo Helmet", Picture = "product_66.jpg", Price = 92.99m, Quantity = 150, Recommended = false },
+                        new { Id = 67, CategoryId = 2, Description = "The brand new Cross Race C:62 SLT was developed for cyclocross purists like you.", Manufacturer = "Cube", Name = "Cross Race C:62 SLT CX Bike 2018", Picture = "product_67.jpg", Price = 1988.89m, Quantity = 50, Recommended = false },
+                        new { Id = 68, CategoryId = 1, Description = "The newly redesigned SLX M7000 brings trickle down technology from Shimano's higher tier groups.", Manufacturer = "Shimano", Name = "SLX M7000 11 Speed Rear Shifter", Picture = "product_68.jpg", Price = 35.89m, Quantity = 50, Recommended = false }
                     );
                 });
 
@@ -180,6 +228,25 @@ namespace BikeShop_DAL.Migrations
                     b.ToTable("Ratings");
                 });
 
+            modelBuilder.Entity("BikeShop_DAL.Models.Recommendation", b =>
+                {
+                    b.Property<int>("RecommendationId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("RecommendationId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Recommendations");
+                });
+
             modelBuilder.Entity("BikeShop_DAL.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -188,6 +255,8 @@ namespace BikeShop_DAL.Migrations
                     b.Property<int>("AccessFailedCount");
 
                     b.Property<string>("Address");
+
+                    b.Property<int?>("Age");
 
                     b.Property<string>("City");
 
@@ -203,7 +272,11 @@ namespace BikeShop_DAL.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<int>("Interests");
+
                     b.Property<string>("LastName");
+
+                    b.Property<int>("LevelOfAdvancement");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -392,6 +465,18 @@ namespace BikeShop_DAL.Migrations
 
                     b.HasOne("BikeShop_DAL.Models.User", "User")
                         .WithMany("Ratings")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("BikeShop_DAL.Models.Recommendation", b =>
+                {
+                    b.HasOne("BikeShop_DAL.Models.Product", "Product")
+                        .WithMany("Recommendations")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BikeShop_DAL.Models.User", "User")
+                        .WithMany("Recommendations")
                         .HasForeignKey("UserId");
                 });
 

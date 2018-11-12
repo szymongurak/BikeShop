@@ -57,6 +57,29 @@
                 <input asp-for="Input.PhoneNumber" class="form-control" />
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Input.Age"></label>
+                <input asp-for="Input.Age" class="form-control" />
+                <span asp-validation-for="Input.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Interests"></label>
+                <select asp-for="Input.Interests" class="form-control">
+                    <option value="@BikeShop_DAL.Models.Enums.Interests.None.ToString()">Select...</option>
+                    <option>@BikeShop_DAL.Models.Enums.Interests.RoadCycling.ToString()</option>
+                    <option>@BikeShop_DAL.Models.Enums.Interests.XC.ToString()</option>
+                    <option>@BikeShop_DAL.Models.Enums.Interests.Downhill.ToString()</option>
+                    <option>@BikeShop_DAL.Models.Enums.Interests.Enduro.ToString()</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LevelOfAdvancement"></label>
+                <select asp-for="Input.LevelOfAdvancement" class="form-control">
+                    <option value="@BikeShop_DAL.Models.Enums.LevelOfAdvancement.None.ToString()">Select...</option>
+                    <option>@BikeShop_DAL.Models.Enums.LevelOfAdvancement.Amateur.ToString()</option>
+                    <option>@BikeShop_DAL.Models.Enums.LevelOfAdvancement.Professional.ToString()</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-default">Register</button>
         </form>
     </div>

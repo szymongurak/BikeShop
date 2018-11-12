@@ -11,6 +11,8 @@ namespace BikeShop_DAL.Repositories
 
         List<Rating> GetRatingsByProductId(int productId);
 
+        List<Rating> GetRatingsByUserId(string userId);
+
         void AddRating(Rating rating);
 
         void Submit();

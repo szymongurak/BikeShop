@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
+using BikeShop_DAL.Models.Enums;
 
 namespace BikeShop_DAL.Models
 {
@@ -15,8 +16,16 @@ namespace BikeShop_DAL.Models
 
         public string Country { get; set; }
 
+        public int? Age { get; set; }
+
+        public Interests Interests { get; set; }
+
+        public LevelOfAdvancement LevelOfAdvancement { get; set; }
+
         public virtual ICollection<Order> Orders { get; set; }
 
         public virtual ICollection<Rating> Ratings { get; set; }
+
+        public virtual ICollection<Recommendation> Recommendations { get; set; }
     }
 }

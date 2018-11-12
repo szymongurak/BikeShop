@@ -23,6 +23,8 @@ using BikeShop_Services.Paging;
 using BikeShop_Services.Cart;
 using BikeShop_Services.Orders;
 using BikeShop_Services.Ratings;
+using BikeShop_ML.RecommendationSystem;
+using Hangfire;
 
 namespace BikeShop_MVC
 {
@@ -49,6 +51,8 @@ namespace BikeShop_MVC
                 opt => opt.CreateMissingTypeMaps = true,
                 Assembly.GetEntryAssembly());
 
+            services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("BikeShop")));
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("BikeShop"), m => m.MigrationsAssembly("BikeShop_DAL")));
@@ -60,6 +64,7 @@ namespace BikeShop_MVC
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<IRecommendationRepository, RecommendationRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IDetailsService, DetailsService>();
@@ -68,6 +73,7 @@ namespace BikeShop_MVC
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IRatingService, RatingService>();
+            services.AddScoped<IRecommendationService, RecommendationService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -85,6 +91,9 @@ namespace BikeShop_MVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

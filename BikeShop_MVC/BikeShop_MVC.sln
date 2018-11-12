@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeShop_Services", "BikeSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeShop_DAL", "BikeShop_DAL\BikeShop_DAL.csproj", "{CACE82D6-CAA1-4C36-AB2D-CA9E1CD337BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeShop_test", "BikeShop_test\BikeShop_test.csproj", "{6851896E-C39F-4202-BA8C-E98D594DFE73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeShop_test", "BikeShop_test\BikeShop_test.csproj", "{6851896E-C39F-4202-BA8C-E98D594DFE73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeShop_ML", "BikeShop_ML\BikeShop_ML.csproj", "{CFDB9C24-7564-4928-AC10-0294E6FAEA1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6851896E-C39F-4202-BA8C-E98D594DFE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6851896E-C39F-4202-BA8C-E98D594DFE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6851896E-C39F-4202-BA8C-E98D594DFE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFDB9C24-7564-4928-AC10-0294E6FAEA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFDB9C24-7564-4928-AC10-0294E6FAEA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFDB9C24-7564-4928-AC10-0294E6FAEA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFDB9C24-7564-4928-AC10-0294E6FAEA1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

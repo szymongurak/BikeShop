@@ -5,11 +5,14 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using BikeShop_DAL.Models;
+using BikeShop_DAL.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BikeShop_ML.RecommendationSystem;
+using Hangfire;
 
 namespace BikeShop_MVC.Areas.Identity.Pages.Account
 {
@@ -20,17 +23,21 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IRecommendationService _recommendationService;
 
         public RegisterModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IRecommendationService recommendationService
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _recommendationService = recommendationService;
         }
 
         [BindProperty]
@@ -79,6 +86,16 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account
             [Display(Name = "PhoneNumber")]
             [RegularExpression(@"(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)", ErrorMessage = "You enetred wrong number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "Age")]
+            [Range(5, 100, ErrorMessage = "Error! You should select value from 5 to 100.")]
+            public int? Age { get; set; }
+
+            [Display(Name = "Interests")]
+            public Interests Interests { get; set; }
+
+            [Display(Name = "LevelOfAdvancement")]
+            public LevelOfAdvancement LevelOfAdvancement { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -91,7 +108,7 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email , FirstName = Input.FirstName, LastName = Input.LastName, Address = Input.Address, City = Input.City, Country = Input.Country, PhoneNumber = Input.PhoneNumber};
+                var user = new User { UserName = Input.Email, Email = Input.Email , FirstName = Input.FirstName, LastName = Input.LastName, Address = Input.Address, City = Input.City, Country = Input.Country, PhoneNumber = Input.PhoneNumber, Age = Input.Age, Interests = Input.Interests, LevelOfAdvancement = Input.LevelOfAdvancement};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -108,12 +125,18 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    if (Input.Age != null && Input.Interests != 0 && Input.LevelOfAdvancement != 0)
+                    {
+                        BackgroundJob.Enqueue(() => _recommendationService.UpdateCommonModel(user.Id));
+                    }
+
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+                
             }
 
             // If we got this far, something failed, redisplay form

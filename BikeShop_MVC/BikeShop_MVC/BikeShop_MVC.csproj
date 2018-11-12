@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BikeShop_DAL\BikeShop_DAL.csproj" />
+    <ProjectReference Include="..\BikeShop_ML\BikeShop_ML.csproj" />
     <ProjectReference Include="..\BikeShop_Services\BikeShop_Services.csproj" />
   </ItemGroup>
 

@@ -6,6 +6,6 @@ namespace BikeShop_Services.HomePage
 {
     public interface IHomePageService
     {
-        HomePageResponse GetProductsToHomePage();
+        HomePageResponse GetProductsToHomePage(string userId);
     }
 }

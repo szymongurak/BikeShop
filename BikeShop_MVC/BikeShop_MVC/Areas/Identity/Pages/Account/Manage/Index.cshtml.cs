@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using BikeShop_DAL.Models;
+using BikeShop_DAL.Models.Enums;
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BikeShop_ML.RecommendationSystem;
 
 namespace BikeShop_MVC.Areas.Identity.Pages.Account.Manage
 {
@@ -17,15 +20,19 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
+        private readonly IRecommendationService _recommendationService;
+
 
         public IndexModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IRecommendationService recommendationService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _recommendationService = recommendationService;
         }
 
         public string Username { get; set; }
@@ -65,6 +72,16 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Phone number")]
             [RegularExpression(@"(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)", ErrorMessage = "You enetred wrong number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "Age")]
+            [Range(5, 100, ErrorMessage = "Error! You should select value from 5 to 100.")]
+            public int? Age { get; set; }
+
+            [Display(Name = "Interests")]
+            public Interests Interests { get; set; }
+
+            [Display(Name = "LevelOfAdvancement")]
+            public LevelOfAdvancement LevelOfAdvancement { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -83,7 +100,9 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account.Manage
             var address = user.Address;
             var city = user.City;
             var country = user.Country;
-
+            var age = user.Age;
+            var interests = user.Interests;
+            var levelOfAdvancement = user.LevelOfAdvancement;
 
             Username = userName;
 
@@ -96,7 +115,10 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account.Manage
                 City = city, 
                 FirstName = firstName,
                 LastName = lastName,
-                Country = country
+                Country = country,
+                Age = age,
+                Interests = interests,
+                LevelOfAdvancement = levelOfAdvancement
             };
 
             return Page();
@@ -172,9 +194,41 @@ namespace BikeShop_MVC.Areas.Identity.Pages.Account.Manage
                 await _userManager.UpdateAsync(user);
             }
 
+            var age = user.Age;
+            if (Input.Age != age)
+            {
+                user.Age = Input.Age;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var interests = user.Interests;
+            if (Input.Interests != interests)
+            {
+                user.Interests = Input.Interests;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var levelOfAdvancement = user.LevelOfAdvancement;
+            if (Input.LevelOfAdvancement != levelOfAdvancement)
+            {
+                user.LevelOfAdvancement = Input.LevelOfAdvancement;
+                await _userManager.UpdateAsync(user);
+            }
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
+
+            if (Input.Age != null && Input.Interests != 0 && Input.LevelOfAdvancement != 0)
+            {
+                //Input.Interests = Interests.Downhill | Interests.Enduro;
+                //if ((Input.Interests & Interests.Enduro) != 0)
+                //{
+
+                //}
+                BackgroundJob.Enqueue(() => _recommendationService.UpdateCommonModel(_userManager.GetUserId(User)));
+                //await _recommendationService.UpdateCommonModel(_userManager.GetUserId(User));
+            }
+
             return RedirectToPage();
         }
     }

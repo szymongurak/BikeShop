@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using BikeShop_Services.Ratings;
 using BikeShop_Services.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
 
 namespace BikeShop_MVC.Controllers
 {
@@ -53,7 +54,7 @@ namespace BikeShop_MVC.Controllers
         [Route("[action]")]
         public OperationResult<RatingStats> SaveRating(int productId, int ratingValue)
         {
-            var result =  _ratingService.SaveRating(ratingValue, _userManager.GetUserId(this.User), productId);
+            var result = _ratingService.SaveRating(ratingValue, _userManager.GetUserId(this.User), productId);
             return OperationResult<RatingStats>.Success(result);
         }
     }

@@ -38,5 +38,12 @@ namespace BikeShop_DAL.Repositories
         {
             _applicationDbContext.SaveChanges();
         }
+
+        public List<Rating> GetRatingsByUserId(string userId)
+        {
+            return _applicationDbContext.Ratings
+                .Where(u => u.UserId == userId)
+                .ToList();
+        }
     }
 }

@@ -27,5 +27,7 @@ namespace BikeShop_DAL.Models
         public virtual ICollection<OrderPosition> OrderPositions { get; set; }
 
         public virtual ICollection<Rating> Ratings { get; set; }
+
+        public virtual ICollection<Recommendation> Recommendations { get; set; }
     }
 }

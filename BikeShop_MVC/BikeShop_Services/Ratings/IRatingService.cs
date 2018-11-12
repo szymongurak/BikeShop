@@ -1,4 +1,6 @@
-﻿namespace BikeShop_Services.Ratings
+﻿using System.Threading.Tasks;
+
+namespace BikeShop_Services.Ratings
 {
     public interface IRatingService
     {
